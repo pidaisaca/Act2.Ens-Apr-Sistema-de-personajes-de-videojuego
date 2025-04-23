@@ -10,3 +10,4 @@ Jose:
 Clases Concretas, Interfaces: Curable, Volador, Magico, Defendible, Movilizable
 
 Ideas para probar el combate: Se escoge a un personaje y se enfreta a otro.
+test de rama
