@@ -8,3 +8,5 @@ Estructura, clase abstracta Personaje, Subclases intermedias, Clase Juego
 
 Jose:
 Clases Concretas, Interfaces: Curable, Volador, Magico, Defendible, Movilizable
+
+Ideas para probar el combate: Se escoge a un personaje y se enfreta a otro.
