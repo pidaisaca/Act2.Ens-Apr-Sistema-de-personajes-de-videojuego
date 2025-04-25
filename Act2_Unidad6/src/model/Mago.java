@@ -1,5 +1,5 @@
 package model;
 
-public class Mago extends interfaces.Magico{
+public class Mago extends Magico{
     
 }

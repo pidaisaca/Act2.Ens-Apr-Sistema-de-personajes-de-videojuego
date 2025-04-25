@@ -6,7 +6,7 @@ abstract class Personaje {
     private int salud;
     private int ataque;
     private int defensa;
-
+/* 
     public Personaje(String nombre, int nivel, int salud, int ataque, int defensa) {
         this.nombre = nombre;
         this.nivel = nivel;
@@ -14,7 +14,7 @@ abstract class Personaje {
         this.ataque = ataque;
         this.defensa = defensa;
     }
-
+*/
     abstract void atacar();
 
     @Override
