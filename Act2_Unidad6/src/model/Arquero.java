@@ -1,9 +1,11 @@
 package model;
 
-class Arquero extends Fisico{
+import interfaces.*;
+
+public class Arquero extends Fisico implements Volador, Movilizable{
     double agilidad;
     int numFlechas;
-    public Arquero(String nombre, int nivel, int salud, int ataque, int defensa){
+    public Arquero(String nombre, int nivel, int salud, int ataque, int defensa, double agilidad, int numFlechas){
         super(nombre, nivel, salud, ataque, defensa);
 
     }
