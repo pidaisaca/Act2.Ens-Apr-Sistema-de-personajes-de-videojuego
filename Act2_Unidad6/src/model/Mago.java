@@ -1,15 +1,19 @@
 package model;
 
-class Mago extends Magico{
+import interfaces.*;
+
+public class Mago extends Magico implements Magica, Curable{
     int mana;
-    int Sabiduria;
-    public Mago(String nombre, int nivel, int salud, int ataque, int defensa){
+    int sabiduria;
+    public Mago(String nombre, int nivel, int salud, int ataque, int defensa, int mana, int sabiduria){
         super(nombre, nivel, salud, ataque, defensa);
     }
-    void lanzarHechizo(){
-        System.out.println("Inflige daño magico");
+
+    @Override
+    public void lanzarHechizo(){
+        System.out.println("Lanza un hechizo magico superior exclusivo del mago");
     }
-    void regenerarMana(){
+    public void regenerarMana(){
         System.out.println("Regenera una gran cantidad de mana");
     }
 }
