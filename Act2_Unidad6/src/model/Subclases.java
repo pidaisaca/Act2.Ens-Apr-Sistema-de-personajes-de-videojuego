@@ -1,8 +1,8 @@
 package model;
 
-class Subclases extends Personaje {
+class Fisico extends Personaje {
 
-    public Subclases(String nombre, int nivel, int salud, int ataque, int defensa) {
+    public Fisico(String nombre, int nivel, int salud, int ataque, int defensa) {
         super(nombre, nivel, salud, ataque, defensa);
     }
 
