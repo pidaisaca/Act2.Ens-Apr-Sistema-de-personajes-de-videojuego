@@ -1,6 +1,6 @@
 package model;
 
-abstract class Personaje {
+abstract public class Personaje {
     private String nombre;
     private int nivel;
     private int salud;
@@ -19,8 +19,8 @@ abstract class Personaje {
 
     @Override
     public String toString() {
-        return "Nombre del personaje: " + nombre + ", nivel: " + nivel + ", puntos de salud: " + salud + 
-        " valor de ataque" + ataque + ", valor de defensa: " + defensa;
+        return "Clase del personaje: " + nombre + ", nivel: " + nivel + ", puntos de salud: " + salud + 
+        ", valor de ataque: " + ataque + ", valor de defensa: " + defensa;
     }
 
     @Override
@@ -32,6 +32,9 @@ abstract class Personaje {
     public int hashCode() {
         return super.hashCode();
     }
-    //toString(), equals(), hashCode()
+    
+    public String getNombre() {
+        return this.nombre;
+    }
 
 }
