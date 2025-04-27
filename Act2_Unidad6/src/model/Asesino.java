@@ -7,6 +7,8 @@ public class Asesino extends Fisico implements Movilizable, Curable{
     double critico;
     public Asesino(String nombre, int nivel, int salud, int ataque, int defensa, double sigilo, double critico){
         super(nombre, nivel, salud, ataque, defensa);
+        this.sigilo = sigilo;
+        this.critico = critico;
     }
     void atacarPorLaEspalda(){
         System.out.println("Daño critico garantizado, requiere sigilo");

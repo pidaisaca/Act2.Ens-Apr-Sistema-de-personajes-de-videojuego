@@ -7,7 +7,8 @@ public class Arquero extends Fisico implements Volador, Movilizable{
     int numFlechas;
     public Arquero(String nombre, int nivel, int salud, int ataque, int defensa, double agilidad, int numFlechas){
         super(nombre, nivel, salud, ataque, defensa);
-
+        this.agilidad = agilidad;
+        this.numFlechas = numFlechas;
     }
     void restablecerFlechas(){
         System.out.println("Restablecer flechas");
@@ -16,5 +17,4 @@ public class Arquero extends Fisico implements Volador, Movilizable{
     void dispararFlechas(){
         System.out.println("Gasta flechas para infligir daño fisico a distancia");
     }
-
 }

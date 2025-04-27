@@ -10,6 +10,9 @@ public class Guerrero extends Fisico implements Defendible {
     public Guerrero(String nombre, int nivel, int salud, int ataque, int defensa, int fuerza, int armadura,
             double escudo) {
         super(nombre, nivel, salud, ataque, defensa);
+        this.fuerza = fuerza;
+        this.armadura = armadura;
+        this.escudo = escudo;
     }
 
     void cargarAtaque() {
