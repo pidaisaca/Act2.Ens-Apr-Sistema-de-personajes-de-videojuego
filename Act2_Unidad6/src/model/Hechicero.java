@@ -5,7 +5,7 @@ import interfaces.*;
 public class Hechicero extends Magico implements Magica, Defendible{
     int mana;
     int concentracion; //atributo aun por definir
-    public Hechicero(String nombre, int nivel, int salud, int ataque, int defensa, int mana, int concentracion){
+    public Hechicero(Nombre nombre, int nivel, int salud, int ataque, int defensa, int mana, int concentracion){
         super(nombre, nivel, salud, ataque, defensa);
         this.mana = mana;
         this.concentracion = concentracion;

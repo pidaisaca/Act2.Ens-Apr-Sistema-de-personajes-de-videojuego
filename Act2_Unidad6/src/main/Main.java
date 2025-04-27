@@ -2,7 +2,10 @@ package main;
 
 import java.util.Scanner;
 
+import javax.swing.plaf.basic.BasicBorders.MarginBorder;
+
 import model.*;
+import model.Personaje.Nombre;
 import interfaces.*;
 
 public class Main {
@@ -12,11 +15,11 @@ public class Main {
             Scanner sc = new Scanner(System.in);
 
             //Crear personajes
-            Personaje guerrero = new Guerrero("Guerrero", 10, 150, 20, 15, 20, 10, 0.5);
-            Personaje arquero = new Arquero("Arquero", 10, 125, 20, 10, 20, 10);
-            Personaje hechicero = new Hechicero("Hechicero", 10, 100, 20, 15, 20, 10);
-            Personaje asesino = new Asesino("Asesino", 10, 100, 25, 10, 20, 0.5); 
-            Personaje mago = new Mago("Mago", 10, 100, 10, 10, 20, 10);
+            Guerrero guerrero = new Guerrero(Nombre.GUERRERO, 10, 150, 20, 15, 20, 10, 0.5);
+            Arquero arquero = new Arquero(Nombre.ARQUERO, 10, 125, 20, 10, 20, 10);
+            Hechicero hechicero = new Hechicero(Nombre.HECHICERO, 10, 100, 20, 15, 20, 10);
+            Asesino asesino = new Asesino(Nombre.ASESINO, 10, 100, 25, 10, 20, 0.5); 
+            Mago mago = new Mago(Nombre.MAGO, 10, 100, 10, 10, 20, 10);
             
             
             juego.agregarPersonaje(guerrero);
@@ -50,7 +53,7 @@ public class Main {
                     break;
                 case 2:
                     
-                    System.out.println("Que personaje desea usar?");
+                    System.out.println("Escoge el primer personaje");
                     juego.listarPersonajesDisponibles();
                     //Seleccionar personaje 1
                     //Borrar personaje 1 de lista de disponibles

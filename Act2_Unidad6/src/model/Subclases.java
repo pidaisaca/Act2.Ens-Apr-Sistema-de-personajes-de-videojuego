@@ -2,7 +2,7 @@ package model;
 
 class Fisico extends Personaje {
 
-    public Fisico(String nombre, int nivel, int salud, int ataque, int defensa) {
+    public Fisico(Nombre nombre, int nivel, int salud, int ataque, int defensa) {
         super(nombre, nivel, salud, ataque, defensa);
     }
 
@@ -29,7 +29,7 @@ class Fisico extends Personaje {
 
 class Magico extends Personaje {
 
-    public Magico(String nombre, int nivel, int salud, int ataque, int defensa) {
+    public Magico(Nombre nombre, int nivel, int salud, int ataque, int defensa) {
         super(nombre, nivel, salud, ataque, defensa);
 
     }
