@@ -49,15 +49,22 @@ public class Batalla {
                         break;
                     case GUERRERO:
                         combatientes.agregarPersonaje(guerrero);
+                        juego.eliminarPersonajeDisponible(guerrero);
                         break;
                     case ASESINO:
                         combatientes.agregarPersonaje(asesino);
+                        juego.eliminarPersonajeDisponible(asesino);
+
                         break;
                     case ARQUERO:
                         combatientes.agregarPersonaje(arquero);
+                        juego.eliminarPersonajeDisponible(arquero);
+
                         break;
                     case HECHICERO:
                         combatientes.agregarPersonaje(hechicero);
+                        juego.eliminarPersonajeDisponible(hechicero);
+
                         break;
                     default:
                         System.out.println("Personaje no válido.");
