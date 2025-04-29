@@ -7,6 +7,7 @@ import java.util.Scanner;
 import model.Personaje.Nombre;
 
 public class Batalla {
+
     private List<Personaje> combatientes;
 
     public Batalla() {
@@ -20,17 +21,19 @@ public class Batalla {
     }
 
     public void listarCombatientes() {
+        System.out.println();
         for (int i = 0; i < combatientes.size(); i++) {
             Personaje combatiente = combatientes.get(i);
-            System.out.println(combatiente.getNombre());
+            System.out.print(combatiente.getNombre());
             if (i == 0) {
-                System.out.println("VS");
+                System.out.print(" /VS/ ");
             }
         }
+
     }
 
-    public void getPersonajesSeleccionados(Juego juego, Batalla combatientes, Scanner sc, Guerrero guerrero,
-            Arquero arquero, Hechicero hechicero, Asesino asesino, Mago mago) {
+    public void getPersonajesSeleccionados(Juego juego, Batalla combatientes, Scanner sc, Personaje guerrero,
+            Personaje arquero, Personaje hechicero, Personaje asesino, Personaje mago) {
         int personajesSeleccionados = 0;
 
         while (personajesSeleccionados < 2) {

@@ -12,11 +12,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         // Crear personajes
-        Guerrero guerrero = new Guerrero(Nombre.GUERRERO, 10, 150, 20, 15, 20, 10, 0.5);
-        Arquero arquero = new Arquero(Nombre.ARQUERO, 10, 125, 20, 10, 20, 10);
-        Hechicero hechicero = new Hechicero(Nombre.HECHICERO, 10, 100, 20, 15, 20, 10);
-        Asesino asesino = new Asesino(Nombre.ASESINO, 10, 100, 25, 10, 20, 0.5);
-        Mago mago = new Mago(Nombre.MAGO, 10, 100, 10, 10, 20, 10);
+        Personaje guerrero = new Guerrero(Nombre.GUERRERO, 10, 150, 20, 15, 20, 10, 0.5);
+        Personaje arquero = new Arquero(Nombre.ARQUERO, 10, 125, 20, 10, 20, 10);
+        Personaje hechicero = new Hechicero(Nombre.HECHICERO, 10, 100, 20, 15, 20, 10);
+        Personaje asesino = new Asesino(Nombre.ASESINO, 10, 100, 25, 10, 20, 0.5);
+        Personaje mago = new Mago(Nombre.MAGO, 10, 100, 10, 10, 20, 10);
 
         juego.agregarPersonaje(guerrero);
         juego.agregarPersonaje(arquero);
