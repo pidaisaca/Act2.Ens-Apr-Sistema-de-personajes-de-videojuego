@@ -14,7 +14,10 @@ public class Guerrero extends Fisico implements Defendible {
         this.armadura = armadura;
         this.escudo = escudo;
     }
-
+    @Override
+    public void atacar(){
+        System.out.println("Ataque de guerrero");
+    }
     void cargarAtaque() {
         System.out.println("Aumenta el daño del siguiente ataque");
     }

@@ -45,6 +45,7 @@ public class Batalla {
                 switch (luchador) {
                     case MAGO:
                         combatientes.agregarPersonaje(mago);
+                        juego.eliminarPersonajeDisponible(mago);
                         break;
                     case GUERRERO:
                         combatientes.agregarPersonaje(guerrero);

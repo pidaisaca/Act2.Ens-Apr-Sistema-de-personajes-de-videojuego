@@ -22,7 +22,7 @@ abstract public class Personaje {
         this.defensa = defensa;
     }
   
-    abstract void atacar();
+    public abstract void atacar();
 
     @Override
     public String toString() {
