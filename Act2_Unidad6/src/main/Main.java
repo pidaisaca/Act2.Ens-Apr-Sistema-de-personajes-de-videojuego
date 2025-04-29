@@ -2,55 +2,53 @@ package main;
 
 import java.util.Scanner;
 import model.*;
+import model.Personaje.Nombre;
 
 public class Main {
 
     public static void main(String[] args) {
-            Juego juego = new Juego();
-            Scanner sc = new Scanner(System.in);
+        Juego juego = new Juego();
+        Batalla combatientes = new Batalla();
+        Scanner sc = new Scanner(System.in);
 
-            //Crear personajes
-            Personaje guerrero = new Guerrero("Guerrero", 10, 150, 20, 15, 20, 10, 0.5);
-            Personaje arquero = new Arquero("Arquero", 10, 125, 20, 10, 20, 10);
-            Personaje hechicero = new Hechicero("Hechicero", 10, 100, 20, 15, 20, 10);
-            Personaje asesino = new Asesino("Asesino", 10, 100, 25, 10, 20, 0.5); 
-            Personaje mago = new Mago("Mago", 10, 100, 10, 10, 20, 10);
-            
-            
-            juego.agregarPersonaje(guerrero);
-            juego.agregarPersonaje(arquero);
-            juego.agregarPersonaje(hechicero);
-            juego.agregarPersonaje(asesino);
-            juego.agregarPersonaje(mago);
+        // Crear personajes
+        Guerrero guerrero = new Guerrero(Nombre.GUERRERO, 10, 150, 20, 15, 20, 10, 0.5);
+        Arquero arquero = new Arquero(Nombre.ARQUERO, 10, 125, 20, 10, 20, 10);
+        Hechicero hechicero = new Hechicero(Nombre.HECHICERO, 10, 100, 20, 15, 20, 10);
+        Asesino asesino = new Asesino(Nombre.ASESINO, 10, 100, 25, 10, 20, 0.5);
+        Mago mago = new Mago(Nombre.MAGO, 10, 100, 10, 10, 20, 10);
 
-            juego.agregarPersonajeDisponible(mago);
-            juego.agregarPersonajeDisponible(guerrero);
-            juego.agregarPersonajeDisponible(arquero);
-            juego.agregarPersonajeDisponible(hechicero);
-            juego.agregarPersonajeDisponible(asesino);
-    
-            System.out.println("Bienvenido a la arena de batallas\n");
-            System.out.println("Que desea hacer?\n");
-            System.out.println("1. Listar combatientes\n");
-            System.out.println("2. Iniciar batalla\n");
-            System.out.println("3. Salir\n");
-            int opcion = sc.nextInt();
-            sc.nextLine();
+        juego.agregarPersonaje(guerrero);
+        juego.agregarPersonaje(arquero);
+        juego.agregarPersonaje(hechicero);
+        juego.agregarPersonaje(asesino);
+        juego.agregarPersonaje(mago);
 
-            switch (opcion) {
-                case 1:
-                    juego.listarPersonajes();
-                    System.out.println("¿Desea hacer otra accion?\n");
-                    System.out.println("1. Listar combatientes\n");
-                    System.out.println("2. Iniciar batalla\n");
-                    System.out.println("3. Salir\n");
-                    opcion = sc.nextInt();
-                    break;
-                case 2:
-                    
-                    System.out.println("Que personaje desea usar?");
-                    juego.listarPersonajesDisponibles();
-                    /*Seleccionar personaje 1
+        juego.agregarPersonajeDisponible(mago);
+        juego.agregarPersonajeDisponible(guerrero);
+        juego.agregarPersonajeDisponible(arquero);
+        juego.agregarPersonajeDisponible(hechicero);
+        juego.agregarPersonajeDisponible(asesino);
+
+        System.out.println("Bienvenido a la arena de batallas\n");
+        System.out.println("Que desea hacer?\n");
+        System.out.println("1. Listar combatientes\n");
+        System.out.println("2. Iniciar batalla\n");
+        System.out.println("3. Salir\n");
+        int opcion = sc.nextInt();
+        sc.nextLine();
+
+        switch (opcion) {
+            case 1:
+                juego.listarPersonajes();
+                System.out.println("¿Desea hacer otra accion?\n");
+                System.out.println("1. Listar combatientes\n");
+                System.out.println("2. Iniciar batalla\n");
+                System.out.println("3. Salir\n");
+                opcion = sc.nextInt();
+                break;
+            case 2:
+             /*Seleccionar personaje 1
                     Listar personajes disponibles -> GetPersonaje de la lista -> Asignar personaje 1 a variable combatiente1 -> Sacar de la lista a personaje seleccionado -> Lista combatienes meter combatiente
                     Listar personajes disponibles -> Seleccionar personaje 2 -> Asignar personaje 2 a variable combatiente2 -> Sacar de la lista a personaje seleccionado -> Lista combatientes meter combatiente
                     Idealmente restaurar lista de personajes disponibles (ahora o al final de la batalla)
@@ -65,20 +63,24 @@ public class Main {
                                 Repetir hasta que alguno de los personajes quede sin salud
                     Mostrar ganador (Aquel cuyo valor de salud sea mayor, si ambos son iguales mostrar empate) -> Variable ganador = (comparar salud de ambos personajes y asignar el mayor -> con un if) // Sacar personaje de la lista de combatientes y mostrarla
                     Preguntar si se desea volver al menu o salir (En caso de salir, opcion = 3 en el switch y en el otro dejar un break para volver al menu)*/
-                    break;
+                   
+                combatientes.getPersonajesSeleccionados(juego, combatientes, sc, guerrero, arquero, hechicero, asesino, mago); //seleccionar a los personajes
+                combatientes.listarCombatientes(); //listar los personajes que se enfrentaran
+                
+                break;
 
-                case 3:
-                    System.out.println("Gracias por jugar!");
-                    break;
-            
-                default:
-                    System.out.println("Opcion no valida");
-                    break;
-            } 
-            sc.close();   
+            case 3:
+                System.out.println("Gracias por jugar!");
+                break;
+
+            default:
+                break;
+        }
+        sc.close();
     }
-}
 
+
+}
 /* Posible diseño de las habilidades
  *  
  *  - Guerrero: 

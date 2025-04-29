@@ -5,7 +5,7 @@ import interfaces.*;
 public class Mago extends Magico implements Magica, Curable{
     int mana;
     int sabiduria;
-    public Mago(String nombre, int nivel, int salud, int ataque, int defensa, int mana, int sabiduria){
+    public Mago(Nombre nombre, int nivel, int salud, int ataque, int defensa, int mana, int sabiduria){
         super(nombre, nivel, salud, ataque, defensa);
         this.mana = mana;
         this.sabiduria = sabiduria;

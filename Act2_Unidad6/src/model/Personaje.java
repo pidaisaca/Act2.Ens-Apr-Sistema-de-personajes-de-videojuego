@@ -1,21 +1,28 @@
 package model;
 
 abstract public class Personaje {
-    private String nombre;
+    private Nombre nombre;
     private int nivel;
     private int salud;
     private int ataque;
     private int defensa;
 
-    public Personaje(String nombre, int nivel, int salud, int ataque, int defensa) {
+    public enum Nombre{
+        GUERRERO,
+        MAGO,
+        HECHICERO,
+        ARQUERO,
+        ASESINO
+    }
+    public Personaje(Nombre nombre, int nivel, int salud, int ataque, int defensa) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.salud = salud;
         this.ataque = ataque;
         this.defensa = defensa;
     }
-
-    abstract void atacar();
+  
+    public abstract void atacar();
 
     @Override
     public String toString() {
@@ -33,7 +40,7 @@ abstract public class Personaje {
         return super.hashCode();
     }
     
-    public String getNombre() {
+    public Nombre getNombre() {
         return this.nombre;
     }
 
