@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.Random;
+
 import java.util.Scanner;
 
 import model.Personaje.Nombre;
@@ -29,6 +32,8 @@ public class Batalla {
                 System.out.print(" /VS/ ");
             }
         }
+
+        System.out.println();
 
     }
 
@@ -79,6 +84,85 @@ public class Batalla {
                 System.out.println("Nombre de personaje inválido. Intenta de nuevo.");
             }
         }
+    }
+
+
+    public Personaje getCombatiente1() {
+        for (int i = 0; i < combatientes.size(); i++) {
+            Personaje combatiente = combatientes.get(i);
+            if (i == 0) {
+                System.out.println("Combatiente 1: " + combatiente.getNombre());
+                return combatiente;
+            }
+        }
+        return null;
+    }
+
+    public Personaje getCombatiente2() {
+        for (int i = 0; i < combatientes.size(); i++) {
+            Personaje combatiente = combatientes.get(i);
+            if (i == 1) {
+                System.out.println("Combatiente 2: " + combatiente.getNombre());
+                return combatiente;
+            }
+        }
+        return null;
+    }
+
+    public void iniciarBatallaSoloAtacar(Personaje combatiente1, Personaje combatiente2) {
+        while (combatiente1.getSalud() >= 0 && combatiente2.getSalud() >= 0) {
+            int turno = new Random().nextInt(2);
+            if (turno == 0) {
+                System.out.println("Empieza la ronda " + combatiente1.getNombre());
+                System.out.println("Turno de " + combatiente1.getNombre());
+                combatiente1.atacar(combatiente2, combatiente1);
+                System.out.println(combatiente2.getNombre() + " ha perdido " + combatiente1.getAtaque() + " puntos de salud.");
+                System.out.println("Turno de " + combatiente2.getNombre());
+                combatiente2.atacar(combatiente1, combatiente2);
+                System.out.println(combatiente1.getNombre() + " ha perdido " + combatiente2.getAtaque() + " puntos de salud.");
+            } else {
+                System.out.println("Empieza la ronda " + combatiente2.getNombre()); 
+                System.out.println("Turno de " + combatiente2.getNombre());
+                combatiente2.atacar(combatiente1, combatiente2);
+                System.out.println(combatiente1.getNombre() + " ha perdido " + combatiente2.getAtaque() + " puntos de salud.");
+                System.out.println("Turno de " + combatiente1.getNombre());
+                combatiente1.atacar(combatiente2, combatiente1);
+                System.out.println(combatiente2.getNombre() + " ha perdido " + combatiente1.getAtaque() + " puntos de salud.");
+            }
+        if (combatiente1.getSalud() <= 0) {
+            System.out.println(combatiente2.getNombre() + " ha ganado la batalla.");
+        } 
+        if (combatiente2.getSalud() <= 0) {
+            System.out.println(combatiente1.getNombre() + " ha ganado la batalla.");
+        }
+    }
+    }
+
+    public void iniciarBatalla(Personaje combatiente1, Personaje combatiente2) {
+        while (combatiente1.getSalud() >= 0 && combatiente2.getSalud() >= 0) {
+            int turno = new Random().nextInt(2);
+            if (turno == 0) {
+                System.out.println("Empieza la ronda " + combatiente1.getNombre());
+                System.out.println("Turno de " + combatiente1.getNombre());
+                combatiente1.menuPersonaje(combatiente1, combatiente2);
+                System.out.println("Turno de " + combatiente2.getNombre());
+                combatiente2.menuPersonaje(combatiente2, combatiente1);
+            } else {
+                System.out.println("Empieza la ronda " + combatiente2.getNombre()); 
+                System.out.println("Turno de " + combatiente2.getNombre());
+                combatiente2.menuPersonaje(combatiente2, combatiente1);
+                System.out.println("Turno de " + combatiente1.getNombre());
+                combatiente1.menuPersonaje(combatiente1, combatiente2);
+            }
+        if (combatiente1.getSalud() <= 0) {
+            System.out.println("EL combatiente " + combatiente1.getNombre() + " ha perdido la batalla.");
+            System.out.println(combatiente2.getNombre() + " ha ganado la batalla.");
+        } 
+        if (combatiente2.getSalud() <= 0) {
+            System.out.println("EL combatiente " + combatiente2.getNombre() + " ha perdido la batalla.");   
+            System.out.println(combatiente1.getNombre() + " ha ganado la batalla.");
+        }
+    }
     }
 
 }

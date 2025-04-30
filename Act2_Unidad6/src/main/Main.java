@@ -66,7 +66,10 @@ public class Main {
                    
                 combatientes.getPersonajesSeleccionados(juego, combatientes, sc, guerrero, arquero, hechicero, asesino, mago); //seleccionar a los personajes
                 combatientes.listarCombatientes(); //listar los personajes que se enfrentaran
-                
+                Personaje combatiente1 = combatientes.getCombatiente1();
+                Personaje combatiente2 = combatientes.getCombatiente2();
+                combatientes.iniciarBatalla(combatiente1, combatiente2);
+
                 break;
 
             case 3:

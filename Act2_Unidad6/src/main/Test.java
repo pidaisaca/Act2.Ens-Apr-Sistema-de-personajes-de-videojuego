@@ -14,13 +14,14 @@ class Test {
         Asesino asesino = new Asesino(Nombre.ASESINO, 10, 100, 25, 10, 20, 0.5); 
         Mago mago = new Mago(Nombre.MAGO, 10, 100, 10, 10, 20, 10);
 
-        guerrero.atacar();
         ((Guerrero)guerrero).defender(); // Llamada al metodo defender de la clase Guerrero
-
-        mago.atacar();
+        
         mago.lanzarHechizo(); // Llamada al metodo lanzar hechizo de la clase Mago
         mago.curar();
         mago.lanzarHechizo();
         mago.regenerarMana();
+
+        mago.menuPersonaje();
+
     }
 }

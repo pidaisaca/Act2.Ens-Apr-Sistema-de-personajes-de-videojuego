@@ -7,8 +7,17 @@ class Fisico extends Personaje {
     }
 
     @Override
-    public void atacar() {
-        System.out.println("Ataque fisico");
+    public void atacar(Personaje enemigo, Personaje combatiente) {
+        System.out.println("Ejecutando Ataque fisico");
+        enemigo.setSalud(enemigo.getSalud() - combatiente.getAtaque());
+        System.out.println(enemigo.getNombre() + " ha perdido " + combatiente.getAtaque() + " puntos de salud.");
+        System.out.println(enemigo.getSalud());
+        System.out.println(combatiente.getSalud());
+    }
+
+    @Override
+    public void menuPersonaje(Personaje personaje, Personaje personaje2) {
+        
     }
 
     @Override
@@ -36,8 +45,17 @@ class Magico extends Personaje {
 
 
     @Override
-    public void atacar() {
-        System.out.println("Ataque magico");
+    public void atacar(Personaje enemigo, Personaje combatiente) {
+        System.out.println("Ejecutando ataque magico");
+        enemigo.setSalud(enemigo.getSalud() - combatiente.getAtaque());
+        System.out.println(enemigo.getNombre() + " ha perdido " + combatiente.getAtaque() + " puntos de salud.");
+        System.out.println(enemigo.getSalud());
+        System.out.println(combatiente.getSalud());
+    }
+
+    @Override
+    public void menuPersonaje(Personaje personaje, Personaje personaje2) {
+        
     }
 
     @Override
