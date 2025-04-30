@@ -17,7 +17,12 @@ class Fisico extends Personaje {
 
     @Override
     public void menuPersonaje(Personaje personaje, Personaje personaje2) {
-        
+    
+    }
+
+    @Override
+    public void atacarTipo() {
+        System.out.println("Ataque fisico");
     }
 
     @Override
@@ -56,6 +61,11 @@ class Magico extends Personaje {
     @Override
     public void menuPersonaje(Personaje personaje, Personaje personaje2) {
         
+    }
+
+    @Override
+    public void atacarTipo() {
+        System.out.println("Ataque mágico");
     }
 
     @Override

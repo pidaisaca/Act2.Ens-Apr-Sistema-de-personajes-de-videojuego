@@ -28,6 +28,8 @@ abstract public class Personaje {
   
     public abstract void atacar(Personaje personaje, Personaje personaje2);
 
+    public abstract void atacarTipo();
+
     public abstract void menuPersonaje(Personaje personaje, Personaje personaje2);
 
 
@@ -51,7 +53,7 @@ abstract public class Personaje {
     public Personaje getPersonaje() {
         return this;
     }
-=======
+
 
     
     public Nombre getNombre() {

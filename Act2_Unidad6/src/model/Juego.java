@@ -20,7 +20,7 @@ public class Juego {
         for (Personaje personaje : personajes) {
             System.out.println(personaje.toString());
             System.out.print("Tipo de ataque: ");
-            personaje.atacar();
+            personaje.atacarTipo();
             if (personaje instanceof Arquero) {
                 Arquero arquero = (Arquero) personaje;
                 System.out.println("Habilidades del arquero");

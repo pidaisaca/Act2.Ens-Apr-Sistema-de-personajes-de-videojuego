@@ -7,6 +7,7 @@ import model.Personaje.Nombre;
 public class Main {
 
     public static void main(String[] args) {
+        // Instancias
         Juego juego = new Juego();
         Batalla combatientes = new Batalla();
         Scanner sc = new Scanner(System.in);
