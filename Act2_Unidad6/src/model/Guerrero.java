@@ -1,6 +1,8 @@
 package model;
 
+
 import java.util.Scanner;
+
 
 import interfaces.*;
 
@@ -16,7 +18,7 @@ public class Guerrero extends Fisico implements Defendible {
         this.armadura = armadura;
         this.escudo = escudo;
     }
-    
+  
     void cargarAtaque() {
         System.out.println("Aumenta el daño del siguiente ataque");
     }
@@ -51,4 +53,5 @@ public class Guerrero extends Fisico implements Defendible {
                 break;
         }
     }
+
 }

@@ -22,5 +22,6 @@ class Test {
         mago.regenerarMana();
 
         mago.menuPersonaje();
+
     }
 }

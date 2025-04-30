@@ -69,6 +69,7 @@ public class Main {
                 Personaje combatiente1 = combatientes.getCombatiente1();
                 Personaje combatiente2 = combatientes.getCombatiente2();
                 combatientes.iniciarBatalla(combatiente1, combatiente2);
+
                 break;
 
             case 3:

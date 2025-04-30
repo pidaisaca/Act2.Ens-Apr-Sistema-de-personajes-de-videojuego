@@ -23,11 +23,13 @@ abstract public class Personaje {
         this.defensa = defensa;
     }
 
+
     public Personaje() {}
   
     public abstract void atacar(Personaje personaje, Personaje personaje2);
 
     public abstract void menuPersonaje(Personaje personaje, Personaje personaje2);
+
 
     @Override
     public String toString() {
@@ -45,13 +47,17 @@ abstract public class Personaje {
         return super.hashCode();
     }
 
+
     public Personaje getPersonaje() {
         return this;
     }
+=======
+
     
     public Nombre getNombre() {
         return this.nombre;
     }
+
 
     public void setNombre(Nombre nombre) {
         this.nombre = nombre;
@@ -89,6 +95,6 @@ abstract public class Personaje {
         this.defensa = defensa;
     }
 
-    
+
 
 }

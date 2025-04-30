@@ -2,7 +2,9 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import java.util.Random;
+
 import java.util.Scanner;
 
 import model.Personaje.Nombre;
@@ -13,9 +15,11 @@ public class Batalla {
 
     public Batalla() {
         combatientes = new ArrayList<Personaje>();
+
     }
 
     public void agregarPersonaje(Personaje personaje) {
+
         combatientes.add(personaje);
     }
 
@@ -28,7 +32,9 @@ public class Batalla {
                 System.out.print(" /VS/ ");
             }
         }
+
         System.out.println();
+
     }
 
     public void getPersonajesSeleccionados(Juego juego, Batalla combatientes, Scanner sc, Personaje guerrero,
@@ -79,6 +85,7 @@ public class Batalla {
             }
         }
     }
+
 
     public Personaje getCombatiente1() {
         for (int i = 0; i < combatientes.size(); i++) {
@@ -157,4 +164,5 @@ public class Batalla {
         }
     }
     }
+
 }

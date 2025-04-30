@@ -7,7 +7,9 @@ import interfaces.*;
 public class Arquero extends Fisico implements Volador, Movilizable{
     double agilidad;
     int numFlechas;
+
     
+
     public Arquero(Nombre nombre, int nivel, int salud, int ataque, int defensa, double agilidad, int numFlechas){
         super(nombre, nivel, salud, ataque, defensa);
         this.agilidad = agilidad;
@@ -20,7 +22,7 @@ public class Arquero extends Fisico implements Volador, Movilizable{
     void dispararFlechas(){
         System.out.println("Gasta flechas para infligir daño fisico a distancia");
     }
-
+  
     @Override
     public void menuPersonaje(Personaje enemigo, Personaje combatiente) {   
         Scanner sc = new Scanner(System.in);
@@ -47,4 +49,5 @@ public class Arquero extends Fisico implements Volador, Movilizable{
                 break;
         }
     }
+
 }

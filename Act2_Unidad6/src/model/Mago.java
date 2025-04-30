@@ -2,7 +2,9 @@ package model;
 
 import interfaces.*;
 
+
 import java.util.Scanner;
+
 
 public class Mago extends Magico implements Magica, Curable{
     int mana;
@@ -20,6 +22,7 @@ public class Mago extends Magico implements Magica, Curable{
     public void regenerarMana(){
         System.out.println("Regenera una gran cantidad de mana");
     }
+
 
     @Override
     public void menuPersonaje(Personaje enemigo, Personaje combatiente) {
@@ -48,4 +51,5 @@ public class Mago extends Magico implements Magica, Curable{
                 break;
         }
     }
+
 }

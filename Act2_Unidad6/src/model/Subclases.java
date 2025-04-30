@@ -43,6 +43,7 @@ class Magico extends Personaje {
 
     }
 
+
     @Override
     public void atacar(Personaje enemigo, Personaje combatiente) {
         System.out.println("Ejecutando ataque magico");
