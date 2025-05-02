@@ -88,7 +88,7 @@ public class Arquero extends Fisico implements Volador, Movilizable {
             case 4:
                 this.volar();
                 break;
-        } sc.close();
+        }
     }
 
 }
