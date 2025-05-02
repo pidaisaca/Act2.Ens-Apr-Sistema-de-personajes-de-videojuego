@@ -9,21 +9,35 @@ import java.util.Scanner;
 
 import model.Personaje.Nombre;
 
+// Clase Batalla
 public class Batalla {
 
     private List<Personaje> combatientes;
     private Random random = new Random();
+    Juego batalla = new Juego();
 
+    // Constructor de la batalla
     public Batalla() {
         combatientes = new ArrayList<Personaje>();
 
     }
-
+    // Agregar personajes a la batalla
     public void agregarPersonaje(Personaje personaje) {
 
         combatientes.add(personaje);
     }
 
+    // Obtener la lista de combatientes
+    public List<Personaje> getListaCombatientes() {
+        return combatientes;
+    }
+
+    // Limpiar la lista de combatientes
+    public void limpiarCombatientes() {
+        combatientes.clear();
+    }
+
+    // Listar los combatientes
     public void listarCombatientes() {
         System.out.println();
         for (int i = 0; i < combatientes.size(); i++) {
@@ -38,6 +52,8 @@ public class Batalla {
 
     }
 
+    // Obtener los personajes seleccionados por el usuario. En este metodo se llama al metodo listarPersonajesDisponibles
+    // de la clase Juego y se llama al metodo eliminarPersonajeDisponible de la clase Juego
     public void getPersonajesSeleccionados(Juego juego, Batalla combatientes, Scanner sc, Personaje guerrero,
             Personaje arquero, Personaje hechicero, Personaje asesino, Personaje mago) {
         int personajesSeleccionados = 0;
@@ -81,17 +97,25 @@ public class Batalla {
                 }
 
                 personajesSeleccionados++;
+                System.out.println("");
             } catch (IllegalArgumentException e) {
                 System.out.println("Nombre de personaje inválido. Intenta de nuevo.");
             }
         }
     }
 
+    // Reiniciar la lista de personajes disponibles
+    public void reiniciarCombatientes(Juego juego, Batalla combatientes) {
+        for (Personaje p : combatientes.getListaCombatientes()) {
+            juego.agregarPersonajeDisponible(p);
+        }
+    }
+
+    // Obtener los combatientes
     public Personaje getCombatiente1() {
         for (int i = 0; i < combatientes.size(); i++) {
             Personaje combatiente = combatientes.get(i);
             if (i == 0) {
-                // System.out.println("Combatiente 1: " + combatiente.getNombre());
                 return combatiente;
             }
         }
@@ -102,54 +126,20 @@ public class Batalla {
         for (int i = 0; i < combatientes.size(); i++) {
             Personaje combatiente = combatientes.get(i);
             if (i == 1) {
-                // System.out.println("Combatiente 2: " + combatiente.getNombre());
                 return combatiente;
             }
         }
         return null;
     }
 
-    /*
-     * public void iniciarBatallaSoloAtacar(Personaje combatiente1, Personaje
-     * combatiente2) {
-     * while (combatiente1.getSalud() >= 0 && combatiente2.getSalud() >= 0) {
-     * int turno = new Random().nextInt(2);
-     * if (turno == 0) {
-     * System.out.println("Empieza la ronda " + combatiente1.getNombre());
-     * System.out.println("Turno de " + combatiente1.getNombre());
-     * combatiente1.atacar(combatiente2, combatiente1);
-     * System.out.println(combatiente2.getNombre() + " ha perdido " +
-     * combatiente1.getAtaque() + " puntos de salud.");
-     * System.out.println("Turno de " + combatiente2.getNombre());
-     * combatiente2.atacar(combatiente1, combatiente2);
-     * System.out.println(combatiente1.getNombre() + " ha perdido " +
-     * combatiente2.getAtaque() + " puntos de salud.");
-     * } else {
-     * System.out.println("Empieza la ronda " + combatiente2.getNombre());
-     * System.out.println("Turno de " + combatiente2.getNombre());
-     * combatiente2.atacar(combatiente1, combatiente2);
-     * System.out.println(combatiente1.getNombre() + " ha perdido " +
-     * combatiente2.getAtaque() + " puntos de salud.");
-     * System.out.println("Turno de " + combatiente1.getNombre());
-     * combatiente1.atacar(combatiente2, combatiente1);
-     * System.out.println(combatiente2.getNombre() + " ha perdido " +
-     * combatiente1.getAtaque() + " puntos de salud.");
-     * }
-     * if (combatiente1.getSalud() <= 0) {
-     * System.out.println(combatiente2.getNombre() + " ha ganado la batalla.");
-     * }
-     * if (combatiente2.getSalud() <= 0) {
-     * System.out.println(combatiente1.getNombre() + " ha ganado la batalla.");
-     * }
-     * }
-     * }
-     */
+    // Iniciar la batalla entre los combatientes
     public void iniciarBatalla(Personaje combatiente1, Personaje combatiente2) {
         int ronda = 1;
         while (combatiente1.getSalud() >= 0 && combatiente2.getSalud() >= 0) {
             System.out.println("------------");
             System.out.println("Turno " + ronda);
             System.out.println("------------");
+            batalla.esperar(500);
             int turno = random.nextInt(2);
             if (turno == 0) {
                 System.out.println("Empieza la ronda " + combatiente1.getNombre());
@@ -157,6 +147,7 @@ public class Batalla {
                 System.out.println("Turno de " + combatiente1.getNombre());
                 combatiente1.menuPersonaje(combatiente2);
                 System.out.println("------------");
+                batalla.esperar(1500);
                 if (combatiente2.getSalud() <= 0) {
                     System.out.println("EL combatiente " + combatiente2.getNombre() + " ha perdido la batalla.");
                     System.out.println(combatiente1.getNombre() + " ha ganado la batalla.");
@@ -164,6 +155,7 @@ public class Batalla {
                 }
                 System.out.println("Turno de " + combatiente2.getNombre());
                 combatiente2.menuPersonaje(combatiente1);
+                batalla.esperar(1500);
 
             } else {
                 System.out.println("Empieza la ronda " + combatiente2.getNombre());
@@ -171,6 +163,7 @@ public class Batalla {
                 System.out.println("Turno de " + combatiente2.getNombre());
                 combatiente2.menuPersonaje(combatiente1);
                 System.out.println("------------");
+                batalla.esperar(1500);
                 if (combatiente1.getSalud() <= 0) {
                     System.out.println("EL combatiente " + combatiente1.getNombre() + " ha perdido la batalla.");
                     System.out.println(combatiente2.getNombre() + " ha ganado la batalla.");
@@ -178,23 +171,11 @@ public class Batalla {
                 }
                 System.out.println("Turno de " + combatiente1.getNombre());
                 combatiente1.menuPersonaje(combatiente2);
-            }
-
-            
-            if (combatiente1.getSalud() <= 0) {
-                System.out.println("EL combatiente " + combatiente1.getNombre() + " ha perdido la batalla.");
-                System.out.println(combatiente2.getNombre() + " ha ganado la batalla.");
-
-            }
-            if (combatiente2.getSalud() <= 0) {
-                System.out.println("EL combatiente " + combatiente2.getNombre() + " ha perdido la batalla.");
-                System.out.println(combatiente1.getNombre() + " ha ganado la batalla.");
-                break;
-            }
-                
+                batalla.esperar(1500);
             }
 
             ronda++;
+            System.out.println("");
         }
     }
 

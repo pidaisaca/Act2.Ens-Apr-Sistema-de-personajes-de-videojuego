@@ -64,7 +64,7 @@ Opción de simulación de batalla
 
 ### Atributos propios:
 
-Fuerza: Refleja el daño fisico
+Fuerza: Se añade al ataque para aumentar el daño del metodo atacar del guerrero
 
 Armadura: Reduce el daño fisico
 
@@ -73,7 +73,7 @@ Escudo: Probabilidad de evitar todo el daño
 
 ### Metodos propios:
 
-cargarAtaque(): Aumenta el daño del siguiente ataque
+cargarAtaque(): Aumenta la fuerza del guerrero
 
 defender(): Reduce el daño del siguiente ataque en un %
 
@@ -84,7 +84,7 @@ defender(): Reduce el daño del siguiente ataque en un %
 
 Mana: recurso necesario para lanzar habilidades
 
-Sabiduria: regeneracion pasiva de mana
+Sabiduria: sesu valor se añade al de ataque del mago para su metodo atacar y lanzarHechizo
 
 
 ### Metodos propios:
@@ -98,7 +98,7 @@ regenerarMana(): regenera una cantidad grande de mana
 
 ### Atributos propios:
 
-Agilidad: probabilidad de esquivar
+Agilidad: aumenta el daño del metodo dispararFlecha
 
 NumFlechas: municion necesaria para usar el metodo de disparar Flechas
 
@@ -107,7 +107,7 @@ NumFlechas: municion necesaria para usar el metodo de disparar Flechas
 
 reabastecerFlechas() recarga las flechas
 
-dispararFlechas() inflige daño fisico y a distancia
+dispararFlechas() inflige daño fisico y a distancia, asi que se puede usar mientras se está volando
 
 
 ## Hechicero
@@ -121,9 +121,9 @@ Concentracion: reducción contra el daño mágico
 
 ### Metodos propios:
 
-invocarEntidad(): efecto tipo daño en el tiempo (la entidad hace un ataque al principio del turno)
+invocarEntidad(): efecto tipo daño en el tiempo (la entidad hace un ataque al principio del turno) (Este metodo no se pudo implementar como queriamos, asi que en su lugar simplemente llama al metodo lanzarHechizo)
 
-defender(): Reduce el daño del siguiente ataque en un %
+defender(): Reduce el daño del siguiente ataque en un %, el hechicero ademas recupera un % de mana al usar este metodo
 
 
 ## Asesino
@@ -132,7 +132,7 @@ defender(): Reduce el daño del siguiente ataque en un %
 
 Sigilo: probabilidad de obtener un efecto que aumenta la probabilidad de esquivar
 
-Crítico: probabilidad de daño extra en base a un %
+Crítico: un valor extra que se añade al metodo atacarPorLaEspalda cuando el asesino esta en sigilo
 
 
 ### Metodos propios:

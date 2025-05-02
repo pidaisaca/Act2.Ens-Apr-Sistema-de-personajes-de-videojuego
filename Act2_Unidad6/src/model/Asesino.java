@@ -1,8 +1,7 @@
 package model;
 
-import java.util.Scanner;
-
 import interfaces.*;
+import java.util.Scanner;
 
 
 // Clase Asesino
@@ -31,7 +30,8 @@ public class Asesino extends Fisico implements Movilizable, Curable {
        }
 
     }
-    // El metodo ocultar hace que el asesino se camufla
+    // El metodo ocultar hace que el asesino se camufla.
+    //Esto hace que el metodo atacarPorLaEspalda haga daño adicional
     void ocultar() {
         System.out.println(this.nombre+" se camufla entre las sombras");
         sigilo = true;
@@ -47,7 +47,7 @@ public class Asesino extends Fisico implements Movilizable, Curable {
         System.out.println(this.getNombre() + " se sano " + (this.getAtaque()+this.saludMax/20) + " puntos de salud.");
     }
 
-    //El metodo menuPersonaje es el menu de acciones del asesino
+    //Menu de acciones del asesino
     @Override
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);
@@ -61,7 +61,10 @@ public class Asesino extends Fisico implements Movilizable, Curable {
         int accion = sc.nextInt();
 
         switch (accion) {
-
+            case 1:
+                this.atacar(enemigo);
+                sigilo = false;
+                break;
             case 2:
                 this.atacarPorLaEspalda(enemigo);
                 sigilo = false;
@@ -73,15 +76,9 @@ public class Asesino extends Fisico implements Movilizable, Curable {
                 this.curar();
                 break;
             default:
-                this.atacar(enemigo);
-                sigilo = false;
+                System.out.println("Opcion no valida");
                 break;
-            case 1:
-            default:
-                this.atacar(enemigo);
-                sigilo = false;
-                break;
-        } sc.close();
+        }
     }
 
 }

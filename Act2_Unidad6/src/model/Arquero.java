@@ -1,8 +1,7 @@
 package model;
 
-import java.util.Scanner;
-
 import interfaces.*;
+import java.util.Scanner;
 
 // Clase Arquero
 
@@ -52,11 +51,13 @@ public class Arquero extends Fisico implements Volador, Movilizable {
     }
 
     //Volar es un estado que aumenta en un 50% la probabilidad de que los ataques fallen contra este objetivo
+    @Override
     public void volar() {
         System.out.println(this.nombre + " alza el vuelo");
         this.volando = true;
     }
 
+    //Menu de acciones del arquero
     @Override
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);
@@ -88,7 +89,7 @@ public class Arquero extends Fisico implements Volador, Movilizable {
             case 4:
                 this.volar();
                 break;
-        } sc.close();
+        }
     }
 
 }

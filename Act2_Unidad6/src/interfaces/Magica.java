@@ -1,7 +1,8 @@
 package interfaces;
+import model.Personaje;
 
+// Interface Magica para las clases mago y hechicero
  public interface Magica {
-    default void lanzarHechizo(){
-        System.out.println("Lanza un hechizo basico desde la interfaz magica");
-    }
+   void lanzarHechizo(Personaje enemigo);
+
 } 

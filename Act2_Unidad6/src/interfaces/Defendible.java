@@ -1,7 +1,6 @@
 package interfaces;
 
+// Metodo defender para la clase guerrero
  public interface Defendible {
-    default void defender() {
-        System.out.println("Reduce el daño recibido en un 50% (Heredado de Defendible)");
-    }
+     void defender();
 }

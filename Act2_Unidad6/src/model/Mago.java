@@ -1,32 +1,57 @@
 package model;
 
 import interfaces.*;
-
 import java.util.Scanner;
 
+// Clase Mago
 public class Mago extends Magico implements Magica, Curable {
     int mana;
+    int manaMax;
     int sabiduria;
 
-    public Mago(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa, int mana, int sabiduria) {
+    public Mago(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa, int mana, int manaMax,
+            int sabiduria) {
         super(nombre, nivel, salud, saludMax, ataque, defensa);
         this.mana = mana;
+        this.manaMax = manaMax;
         this.sabiduria = sabiduria;
     }
 
     @Override
-    public void lanzarHechizo() {
-        System.out.println("Lanza un hechizo magico superior exclusivo del mago");
+    public void atacar(Personaje enemigo) {
+        if (this.mana > 10) {
+            System.out.println(this.getNombre()+" lanzo un hechizo basico");
+            enemigo.setSalud(enemigo.salud -= this.ataque + this.sabiduria - enemigo.getDefensa());
+            System.out.println(enemigo.getNombre()+" ha perdido "+ (this.ataque +this.sabiduria - enemigo.getDefensa())+" puntos de salud");
+            this.mana -= 10;
+        } else{
+            System.out.println("No se ha lanzado el hechizo porque no habia mana suficiente");
+            this.regenerarMana();
+        }
+    }
+
+    @Override
+    public void lanzarHechizo(Personaje enemigo) {
+        if(this.mana > 30){
+            System.out.println(this.getNombre()+" lanzo un hechizo avanzado");
+            enemigo.setSalud(enemigo.salud -= this.ataque + this.sabiduria);
+            System.out.println(enemigo.getNombre()+" ha perdido "+ (this.ataque +this.sabiduria)+" puntos de salud");
+            this.mana -= 30;
+        } else{
+            System.out.println("No se ha lanzado el hechizo porque no habia mana suficiente");
+            this.regenerarMana();        }
     }
 
     public void regenerarMana() {
-        System.out.println("Regenera una gran cantidad de mana");
+        mana += (manaMax / 3);
+        if (mana > manaMax) {
+            mana = manaMax;
+        }
+        System.out.println(
+                this.nombre + " regeneró " + ((manaMax / 3)) + " puntos de mana (mana actual: " + this.mana + ")");
     }
 
-    public void getMana() {
-
-    }
-
+    @Override
     public void curar() {
         this.salud += this.ataque + this.saludMax / 10;
         if (this.salud > this.saludMax) {
@@ -40,7 +65,7 @@ public class Mago extends Magico implements Magica, Curable {
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Salud : " + this.salud + "/" + this.saludMax);
-        // mana
+        System.out.println("Mana : " + this.mana + "/" + this.manaMax);
         System.out.println("------------------------");
         System.out.println("Menu de " + this.nombre);
         System.out.println("1. Ataque magico");
@@ -55,13 +80,13 @@ public class Mago extends Magico implements Magica, Curable {
                 this.atacar(enemigo);
                 break;
             case 2:
-                System.out.println("Lanzar hechizo");
+                this.lanzarHechizo(enemigo);
                 break;
             case 3:
-                System.out.println("Regenerar mana");
+                this.regenerarMana();
                 break;
             case 4:
-                System.out.println("Curar");
+                this.curar();
                 break;
         }
     }
