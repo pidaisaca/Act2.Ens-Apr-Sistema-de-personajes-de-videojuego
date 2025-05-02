@@ -40,6 +40,7 @@ public class Main {
         System.out.println("2. Iniciar batalla\n");
         System.out.println("3. Salir\n");
         int opcion = sc.nextInt();
+
         do {
             sc.nextLine();
             switch (opcion) {

@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 import interfaces.*;
 
+
 // Clase Asesino
+
 public class Asesino extends Fisico implements Movilizable, Curable {
     boolean sigilo;
     int critico;
@@ -13,8 +15,10 @@ public class Asesino extends Fisico implements Movilizable, Curable {
         this.sigilo = sigilo;
         this.critico = critico;
     }
+
     //El metodo atacar por la espalda es un ataque critico 
     // pero requiere que el asesino este en sigilo
+
     public void atacarPorLaEspalda(Personaje enemigo) {
        if(sigilo == true){
         critico = random.nextInt(critico);
@@ -25,12 +29,14 @@ public class Asesino extends Fisico implements Movilizable, Curable {
         System.out.println(this.nombre+ " no se encontraba en sigilo y ha ejecutado un ataque normal");
         this.atacar(enemigo);
        }
+
     }
     // El metodo ocultar hace que el asesino se camufla
     void ocultar() {
         System.out.println(this.nombre+" se camufla entre las sombras");
         sigilo = true;
     }
+
 
     //El metodo curar de asesino sana una cantidad igual a su ataque + un 5% de su salud maxima
     public void curar(){
@@ -40,6 +46,7 @@ public class Asesino extends Fisico implements Movilizable, Curable {
         }
         System.out.println(this.getNombre() + " se sano " + (this.getAtaque()+this.saludMax/20) + " puntos de salud.");
     }
+
     //El metodo menuPersonaje es el menu de acciones del asesino
     @Override
     public void menuPersonaje(Personaje enemigo) {
@@ -64,6 +71,10 @@ public class Asesino extends Fisico implements Movilizable, Curable {
                 break;
             case 4:
                 this.curar();
+                break;
+            default:
+                this.atacar(enemigo);
+                sigilo = false;
                 break;
             case 1:
             default:

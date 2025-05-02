@@ -5,6 +5,7 @@ import java.util.Scanner;
 import interfaces.*;
 
 // Clase Arquero
+
 public class Arquero extends Fisico implements Volador, Movilizable {
     int agilidad; //atributo que aumenta el daño de disparar flechas
     int numFlechas = 10; //municion requerida para poder lanzar flechas
@@ -17,6 +18,7 @@ public class Arquero extends Fisico implements Volador, Movilizable {
     }
     public int getAgilidad(){
         return agilidad;
+
     }
 
     //Recupera flechas necesarias para la ejecucion del metodo dispararFlecha
