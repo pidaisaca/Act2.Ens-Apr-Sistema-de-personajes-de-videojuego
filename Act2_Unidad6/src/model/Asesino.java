@@ -1,8 +1,7 @@
 package model;
 
-import java.util.Scanner;
-
 import interfaces.*;
+import java.util.Scanner;
 
 
 // Clase Asesino
@@ -31,7 +30,8 @@ public class Asesino extends Fisico implements Movilizable, Curable {
        }
 
     }
-    // El metodo ocultar hace que el asesino se camufla
+    // El metodo ocultar hace que el asesino se camufla.
+    //Esto hace que el metodo atacarPorLaEspalda haga daño adicional
     void ocultar() {
         System.out.println(this.nombre+" se camufla entre las sombras");
         sigilo = true;

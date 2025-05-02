@@ -1,14 +1,12 @@
 package model;
 
-import java.util.Scanner;
-
 import interfaces.*;
+import java.util.Scanner;
 
 public class Guerrero extends Fisico implements Defendible {
     int fuerza; // atributo que se añade al ataque del guerrero para el daño
     int armadura; // atributo que resta el valor del daño fisico enemigo al daño final al guerrero
     double escudo; //
-    boolean defender;
 
     public Guerrero(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa, int fuerza, int armadura,
             double escudo) {
