@@ -1,5 +1,4 @@
 package model;
-import model.Guerrero;
 import java.util.Random;
 
 abstract public class Personaje {
@@ -15,6 +14,7 @@ abstract public class Personaje {
 
     protected Random random = new Random();
 
+    // Enum para las nombres de las clases de personajes
     public enum Nombre {
         GUERRERO,
         MAGO,
@@ -41,6 +41,8 @@ abstract public class Personaje {
         enemigo.recibirDano(this);
     }
 
+    //Metodos abstractos que deben ser implementados por las subclases
+    //En concreto son los metodos atacar y menuPersonaje
     public abstract void atacarTipo();
 
     public abstract void menuPersonaje(Personaje enemigo);

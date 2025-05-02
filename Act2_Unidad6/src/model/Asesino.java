@@ -47,7 +47,7 @@ public class Asesino extends Fisico implements Movilizable, Curable {
         System.out.println(this.getNombre() + " se sano " + (this.getAtaque()+this.saludMax/20) + " puntos de salud.");
     }
 
-    //El metodo menuPersonaje es el menu de acciones del asesino
+    //Menu de acciones del asesino
     @Override
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);

@@ -9,30 +9,37 @@ import java.util.Scanner;
 
 import model.Personaje.Nombre;
 
+// Clase Batalla
 public class Batalla {
 
     private List<Personaje> combatientes;
     private Random random = new Random();
     Juego batalla = new Juego();
 
+    // Constructor de la batalla
     public Batalla() {
         combatientes = new ArrayList<Personaje>();
 
     }
-
+    // Agregar personajes a la batalla
     public void agregarPersonaje(Personaje personaje) {
 
         combatientes.add(personaje);
     }
 
+
+    // Obtener la lista de combatientes
     public List<Personaje> getListaCombatientes() {
         return combatientes;
     }
 
+
+    // Limpiar la lista de combatientes
     public void limpiarCombatientes() {
         combatientes.clear();
     }
 
+    // Listar los combatientes
     public void listarCombatientes() {
         System.out.println();
         for (int i = 0; i < combatientes.size(); i++) {
@@ -47,6 +54,8 @@ public class Batalla {
 
     }
 
+    // Obtener los personajes seleccionados por el usuario. En este metodo se llama al metodo listarPersonajesDisponibles
+    // de la clase Juego y se llama al metodo eliminarPersonajeDisponible de la clase Juego
     public void getPersonajesSeleccionados(Juego juego, Batalla combatientes, Scanner sc, Personaje guerrero,
             Personaje arquero, Personaje hechicero, Personaje asesino, Personaje mago) {
         int personajesSeleccionados = 0;
@@ -97,11 +106,17 @@ public class Batalla {
         }
     }
 
+
+    // Reiniciar la lista de personajes disponibles
+
     public void reiniciarCombatientes(Juego juego, Batalla combatientes) {
         for (Personaje p : combatientes.getListaCombatientes()) {
             juego.agregarPersonajeDisponible(p);
         }
     }
+
+
+    // Obtener los combatientes
 
     public Personaje getCombatiente1() {
         for (int i = 0; i < combatientes.size(); i++) {
@@ -123,6 +138,8 @@ public class Batalla {
         return null;
     }
 
+
+    // Iniciar la batalla entre los combatientes
 
     public void iniciarBatalla(Personaje combatiente1, Personaje combatiente2) {
         int ronda = 1;

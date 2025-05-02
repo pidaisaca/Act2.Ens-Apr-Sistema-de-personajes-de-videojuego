@@ -31,7 +31,7 @@ public class Guerrero extends Fisico implements Defendible {
         System.out.println("Reduce el daño del siguiente ataque en un 75%(Exclusivo del guerrero)");
         defendiendo = true;
     }
-
+    // Menu de acciones del guerrero
     @Override
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);

@@ -1,8 +1,7 @@
 package model;
 
-import java.util.Scanner;
-
 import interfaces.*;
+import java.util.Scanner;
 
 public class Hechicero extends Magico implements Magica, Defendible, Curable {
     int mana;
@@ -17,11 +16,16 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
         this.concentracion = concentracion;
     }
 
+
+    // Metodo invocarEntidad que no pudimos terminar :(
+
     void invocarEntidad(Personaje enemigo) {
         System.out.println("Placeholder, en su lugar se llama al metodo lanzarHechizo");
         this.lanzarHechizo(enemigo);
     }
 
+    // Metodo lanzarHechizo
+    @Override
     public void lanzarHechizo(Personaje enemigo) {
         if (this.mana > 20) {
             System.out.println(this.getNombre() + " lanzo un hechizo avanzado");
@@ -44,8 +48,8 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
         defendiendo = true;
         System.out.println(this.getNombre() + " recupero: " + (mana * 1.2) + " puntos de mana");
         this.mana += mana * 1.2;
-    }
 
+    @Override
     public void curar() {
         if (this.mana > 10) {
             this.salud += this.ataque + this.saludMax / 5;
@@ -63,6 +67,7 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
 
     }
 
+    // Menu de acciones del hechicero
     @Override
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);
@@ -93,6 +98,7 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
         }
     }
 
+    // Metodo recibirDano del hechicero, el cual recibe menos danio si el atacante es magico
     @Override
     public void recibirDano(Personaje atacante) {
         if (atacante instanceof Magico && atacante.getAtaque() > this.concentracion) {

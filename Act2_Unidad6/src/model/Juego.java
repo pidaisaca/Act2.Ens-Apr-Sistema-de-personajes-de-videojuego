@@ -16,6 +16,8 @@ public class Juego {
         personajes.add(personaje);
     }
 
+    // Listar los menus de los personajes en funcion de su tipo
+    // Usando un instaceof para saber el tipo de personaje 
     public void listarPersonajes() {
         for (Personaje personaje : personajes) {
             System.out.println(personaje.toString());
@@ -68,6 +70,7 @@ public class Juego {
         }
     }
 
+    // Listar los personajes disponibles
     public void agregarPersonajeDisponible(Personaje personaje) {
         personajes_disponibles.add(personaje);
     }
@@ -83,6 +86,10 @@ public class Juego {
             System.out.println(personaje.getNombre());
         }
     }
+
+    // Método para que espere cierto tiempo en la ejecución
+    // Usado en la batalla para que la informacion se vea mas clara
+
     public  void esperar(int milisegundos){
         try{
             Thread.sleep(milisegundos);

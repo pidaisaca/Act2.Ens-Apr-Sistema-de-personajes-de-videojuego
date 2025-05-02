@@ -1,9 +1,9 @@
 package model;
 
 import interfaces.*;
-
 import java.util.Scanner;
 
+// Clase Mago
 public class Mago extends Magico implements Magica, Curable {
     int mana;
     int manaMax;
@@ -30,6 +30,8 @@ public class Mago extends Magico implements Magica, Curable {
         }
     }
 
+
+    @Override
     public void lanzarHechizo(Personaje enemigo) {
         if(this.mana > 30){
             System.out.println(this.getNombre()+" lanzo un hechizo avanzado");
@@ -50,7 +52,7 @@ public class Mago extends Magico implements Magica, Curable {
                 this.nombre + " regeneró " + ((manaMax / 3)) + " puntos de mana (mana actual: " + this.mana + ")");
     }
 
-
+    @Override
     public void curar() {
         this.salud += this.ataque + this.saludMax / 10;
         if (this.salud > this.saludMax) {

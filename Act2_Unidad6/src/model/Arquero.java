@@ -57,6 +57,7 @@ public class Arquero extends Fisico implements Volador, Movilizable {
         this.volando = true;
     }
 
+    //Menu de acciones del arquero
     @Override
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);
