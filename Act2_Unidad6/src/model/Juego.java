@@ -25,11 +25,8 @@ public class Juego {
                 Arquero arquero = (Arquero) personaje;
                 System.out.println("Habilidades del arquero");
                 System.out.print("Disparar flechas: ");
-               // arquero.dispararFlechas();
                 System.out.print("Restablecer flechas: ");
-                arquero.restablecerFlechas();
                 System.out.print("Volar: ");
-                arquero.volar();
                 System.out.println("");
                 System.out.println("----------------");
             }
@@ -37,9 +34,7 @@ public class Juego {
                 Guerrero guerrero = (Guerrero) personaje;
                 System.out.println("Habilidades del guerrero: ");
                 System.out.print("Cargar ataque: ");
-                guerrero.cargarAtaque();
                 System.out.print("Defender: ");
-                guerrero.defender();
                 System.out.println("");
                 System.out.println("----------------");
             }
@@ -47,11 +42,9 @@ public class Juego {
                 Hechicero hechicero = (Hechicero) personaje;
                 System.out.println("Habilidades del hechicero: ");
                 System.out.print("Defender: ");
-                hechicero.defender();
                 System.out.print("Invocar entidad: ");
-                hechicero.invocarEntidad();
                 System.out.print("Lanzar hechizo: ");
-                hechicero.lanzarHechizo();
+                System.out.println("Curar: ");
                 System.out.println("");
                 System.out.println("----------------");
             }
@@ -59,11 +52,8 @@ public class Juego {
                 Asesino asesino = (Asesino) personaje;
                 System.out.println("Habilidades del asesino: ");
                 System.out.print("Ocultar: ");
-                asesino.ocultar();
                 System.out.print("Atacar por la espalda: ");
-               // asesino.atacarPorLaEspalda();
                 System.out.print("Curar: ");
-                asesino.curar();
                 System.out.println("");
                 System.out.println("----------------");
             }
@@ -71,11 +61,8 @@ public class Juego {
                 Mago mago = (Mago) personaje;
                 System.out.println("Habilidades del mago: ");
                 System.out.print("Regenerar mana: ");    
-                mago.regenerarMana();
                 System.out.print("Lanzar hechizo: ");
-                mago.lanzarHechizo();
                 System.out.print("Curar: ");
-                mago.curar();
                 System.out.println("");
             }
         }
@@ -96,4 +83,13 @@ public class Juego {
             System.out.println(personaje.getNombre());
         }
     }
+    public  void esperar(int milisegundos){
+        try{
+            Thread.sleep(milisegundos);
+        } catch(InterruptedException e){
+            System.out.println("Error de ejecucion");
+            Thread.currentThread().interrupt();
+        }
+    }
+  
 }

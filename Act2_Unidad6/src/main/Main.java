@@ -15,9 +15,9 @@ public class Main {
         // Crear personajes
         Personaje guerrero = new Guerrero(Nombre.GUERRERO, 10, 150, 150, 30, 15, 20, 10, 0.5);
         Personaje arquero = new Arquero(Nombre.ARQUERO, 10, 125, 125, 25, 10, 20, 10);
-        Personaje hechicero = new Hechicero(Nombre.HECHICERO, 10, 100, 100, 30, 15, 20, 10);
+        Personaje hechicero = new Hechicero(Nombre.HECHICERO, 10, 100, 100, 30, 15, 100, 100, 10);
         Personaje asesino = new Asesino(Nombre.ASESINO, 10, 100, 100, 45, 10, false, 20);
-        Personaje mago = new Mago(Nombre.MAGO, 10, 100, 100, 35, 10, 20, 10);
+        Personaje mago = new Mago(Nombre.MAGO, 10, 100, 100, 35, 10, 100, 100, 20);
 
         juego.agregarPersonaje(guerrero);
         juego.agregarPersonaje(arquero);
@@ -30,33 +30,29 @@ public class Main {
         juego.agregarPersonajeDisponible(arquero);
         juego.agregarPersonajeDisponible(hechicero);
         juego.agregarPersonajeDisponible(asesino);
-
-        System.out.println("Bienvenido a la arena de batallas\n");
-        System.out.println("Que desea hacer?\n");
-        System.out.println("1. Listar combatientes\n");
-        System.out.println("2. Iniciar batalla\n");
-        System.out.println("3. Salir\n");
+    
         int opcion = 1;
         do {
+            System.out.println("¿Desea hacer otra accion?\n");
+            System.out.println("1. Listar combatientes\n");
+            System.out.println("2. Iniciar batalla\n");
+            System.out.println("3. Salir\n");
+            opcion = sc.nextInt();
             sc.nextLine();
             switch (opcion) {
                 case 1:
                     juego.listarPersonajes();
-                    System.out.println("¿Desea hacer otra accion?\n");
-                    System.out.println("1. Listar combatientes\n");
-                    System.out.println("2. Iniciar batalla\n");
-                    System.out.println("3. Salir\n");
-                    opcion = sc.nextInt();
                     break;
                 case 2:
 
                     combatientes.getPersonajesSeleccionados(juego, combatientes, sc, guerrero, arquero, hechicero,
                             asesino, mago); // seleccionar a los personajes
                     combatientes.listarCombatientes(); // listar los personajes que se enfrentaran
+                    juego.esperar(1500);
                     Personaje combatiente1 = combatientes.getCombatiente1();
                     Personaje combatiente2 = combatientes.getCombatiente2();
                     combatientes.iniciarBatalla(combatiente1, combatiente2);
-
+                    combatientes.limpiarCombatientes();
                     break;
 
                 case 3:
@@ -64,7 +60,7 @@ public class Main {
                     break;
 
                 default:
-                System.out.println("Opcion no valida");
+                    System.out.println("Opcion no valida");
                     break;
             }
         } while (opcion != 3);

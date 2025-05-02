@@ -4,32 +4,70 @@ import java.util.Scanner;
 
 import interfaces.*;
 
-public class Hechicero extends Magico implements Magica, Defendible {
+public class Hechicero extends Magico implements Magica, Defendible, Curable {
     int mana;
+    int manaMax;
     int concentracion; // reduccion contra el daño magico
 
-    public Hechicero(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa, int mana, int concentracion) {
+    public Hechicero(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa, int mana, int manaMax,
+            int concentracion) {
         super(nombre, nivel, salud, saludMax, ataque, defensa);
         this.mana = mana;
+        this.manaMax = manaMax;
         this.concentracion = concentracion;
     }
 
-    void invocarEntidad() {
-        System.out.println("invoca una entidad que daña al principio de cada turno");
+    void invocarEntidad(Personaje enemigo) {
+        System.out.println("Placeholder, en su lugar se llama al metodo lanzarHechizo");
+        this.lanzarHechizo(enemigo);
+    }
+
+    public void lanzarHechizo(Personaje enemigo) {
+        if (this.mana > 20) {
+            System.out.println(this.getNombre() + " lanzo un hechizo avanzado");
+            enemigo.setSalud(enemigo.salud -= this.ataque + this.concentracion);
+            System.out.println(enemigo.getNombre() + " ha perdido "
+                    + (this.ataque + this.concentracion - enemigo.getDefensa()) + " puntos de salud");
+            this.mana -= 20;
+        } else {
+            System.out.println("No se ha lanzado el hechizo porque no habia mana suficiente y en su lugar "
+                    + this.getNombre() + " se ha defendido");
+            this.defender();
+        }
     }
 
     @Override
     public void defender() {
-        System.out.println("Reduce el daño del siguiente ataque en un %");
+        System.out.println(
+                "Reduce el daño del siguiente ataque en un 50% y regenera algo de mana(exclusivo del Hechicero)");
+        defendiendo = true;
+        System.out.println(this.getNombre() + " recupero: " + (mana * 1.2) + " puntos de mana");
+        this.mana += mana * 1.2;
+    }
+
+    public void curar() {
+        if (this.mana > 10) {
+            this.salud += this.ataque + this.saludMax / 5;
+            if (this.salud > this.saludMax) {
+                this.salud = this.saludMax;
+            }
+            System.out.println(
+                    this.getNombre() + " se sano " + (this.getAtaque() + this.saludMax / 5) + " puntos de salud.");
+        } else {
+            System.out.println("No se ha lanzado el hechizo porque no habia mana suficiente y en su lugar "
+                    + this.getNombre() + " se ha defendido");
+            this.defender();
+        }
+
     }
 
     @Override
     public void menuPersonaje(Personaje enemigo) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Salud : "+this.salud+"/"+this.saludMax);
-        //mana
+        System.out.println("Salud : " + this.salud + "/" + this.saludMax);
+        // mana
         System.out.println("------------------------");
-        System.out.println("Menu de "+this.nombre);
+        System.out.println("Menu de " + this.nombre);
         System.out.println("1. Ataque magico");
         System.out.println("2. Invocar entidad");
         System.out.println("3. Defender");
@@ -39,15 +77,16 @@ public class Hechicero extends Magico implements Magica, Defendible {
         switch (accion) {
             case 1:
                 this.atacar(enemigo);
+                defendiendo = false;
                 break;
             case 2:
-                System.out.println("Invocar entidad");
+                lanzarHechizo(enemigo);
                 break;
             case 3:
-                System.out.println("Defender");
+                this.defender();
                 break;
             case 4:
-                System.out.println("Curar");
+                this.curar();
                 break;
         }
     }
@@ -55,11 +94,24 @@ public class Hechicero extends Magico implements Magica, Defendible {
     @Override
     public void recibirDano(Personaje atacante) {
         if (atacante instanceof Magico && atacante.getAtaque() > this.concentracion) {
-            System.out.println(
-                    this.getNombre() + " ha perdido " + (atacante.getAtaque() - this.concentracion) + " puntos de salud.");
+            if (defendiendo == true) {
+                System.out.println(this.nombre + " ha bloqueado el ataque y reducido el daño en un 50%");
+                System.out.println(
+                        this.getNombre() + " ha perdido " + ((atacante.getAtaque() / 2)) + " puntos de salud.");
+                this.salud -= atacante.getAtaque() / 4;
+                defendiendo = false;
+                return;
+            }
+            System.out.println(this.getNombre() + " ha perdido " + (atacante.getAtaque() - this.concentracion)
+                    + " puntos de salud.");
             this.salud -= atacante.getAtaque() - this.concentracion;
-        } else if (atacante instanceof Fisico) {
+        } else if (atacante instanceof Fisico && defendiendo == true) {
+            this.salud -= atacante.getAtaque() / 2;
+
+        } else {
+
             super.recibirDano(atacante);
         }
     }
+
 }
