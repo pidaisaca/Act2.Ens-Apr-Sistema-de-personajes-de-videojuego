@@ -27,10 +27,12 @@ public class Batalla {
         combatientes.add(personaje);
     }
 
+
     // Obtener la lista de combatientes
     public List<Personaje> getListaCombatientes() {
         return combatientes;
     }
+
 
     // Limpiar la lista de combatientes
     public void limpiarCombatientes() {
@@ -104,14 +106,18 @@ public class Batalla {
         }
     }
 
+
     // Reiniciar la lista de personajes disponibles
+
     public void reiniciarCombatientes(Juego juego, Batalla combatientes) {
         for (Personaje p : combatientes.getListaCombatientes()) {
             juego.agregarPersonajeDisponible(p);
         }
     }
 
+
     // Obtener los combatientes
+
     public Personaje getCombatiente1() {
         for (int i = 0; i < combatientes.size(); i++) {
             Personaje combatiente = combatientes.get(i);
@@ -132,7 +138,9 @@ public class Batalla {
         return null;
     }
 
+
     // Iniciar la batalla entre los combatientes
+
     public void iniciarBatalla(Personaje combatiente1, Personaje combatiente2) {
         int ronda = 1;
         while (combatiente1.getSalud() >= 0 && combatiente2.getSalud() >= 0) {

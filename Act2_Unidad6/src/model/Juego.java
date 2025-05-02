@@ -89,6 +89,7 @@ public class Juego {
 
     // Método para que espere cierto tiempo en la ejecución
     // Usado en la batalla para que la informacion se vea mas clara
+
     public  void esperar(int milisegundos){
         try{
             Thread.sleep(milisegundos);

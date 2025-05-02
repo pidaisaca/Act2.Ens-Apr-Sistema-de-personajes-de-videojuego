@@ -16,7 +16,9 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
         this.concentracion = concentracion;
     }
 
+
     // Metodo invocarEntidad que no pudimos terminar :(
+
     void invocarEntidad(Personaje enemigo) {
         System.out.println("Placeholder, en su lugar se llama al metodo lanzarHechizo");
         this.lanzarHechizo(enemigo);
@@ -46,7 +48,6 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
         defendiendo = true;
         System.out.println(this.getNombre() + " recupero: " + (mana * 1.2) + " puntos de mana");
         this.mana += mana * 1.2;
-    }
 
     @Override
     public void curar() {

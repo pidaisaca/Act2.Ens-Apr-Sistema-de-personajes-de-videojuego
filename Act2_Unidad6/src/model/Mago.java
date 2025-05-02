@@ -30,6 +30,7 @@ public class Mago extends Magico implements Magica, Curable {
         }
     }
 
+
     @Override
     public void lanzarHechizo(Personaje enemigo) {
         if(this.mana > 30){
