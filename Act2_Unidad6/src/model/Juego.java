@@ -25,7 +25,7 @@ public class Juego {
                 Arquero arquero = (Arquero) personaje;
                 System.out.println("Habilidades del arquero");
                 System.out.print("Disparar flechas: ");
-                arquero.dispararFlechas();
+               // arquero.dispararFlechas();
                 System.out.print("Restablecer flechas: ");
                 arquero.restablecerFlechas();
                 System.out.print("Volar: ");
@@ -61,7 +61,7 @@ public class Juego {
                 System.out.print("Ocultar: ");
                 asesino.ocultar();
                 System.out.print("Atacar por la espalda: ");
-                asesino.atacarPorLaEspalda();
+               // asesino.atacarPorLaEspalda();
                 System.out.print("Curar: ");
                 asesino.curar();
                 System.out.println("");

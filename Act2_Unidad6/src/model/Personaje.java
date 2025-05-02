@@ -1,13 +1,21 @@
 package model;
+import model.Guerrero;
+import java.util.Random;
 
 abstract public class Personaje {
-    private Nombre nombre;
-    private int nivel;
-    private int salud;
-    private int ataque;
-    private int defensa;
+    protected Nombre nombre;
+    protected int nivel;
+    protected int salud;
+    protected int saludMax;
+    protected int ataque;
+    protected int defensa;
+    protected int fuerza;
+    protected boolean volando;
+    protected boolean defendiendo;
 
-    public enum Nombre{
+    protected Random random = new Random();
+
+    public enum Nombre {
         GUERRERO,
         MAGO,
         HECHICERO,
@@ -15,51 +23,42 @@ abstract public class Personaje {
         ASESINO
     }
 
-    public Personaje(Nombre nombre, int nivel, int salud, int ataque, int defensa) {
+    public Personaje(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.salud = salud;
+        this.saludMax = saludMax;
         this.ataque = ataque;
         this.defensa = defensa;
     }
 
+    public void atacar(Personaje enemigo) {
+        if (enemigo.isVolando() && random.nextInt(2) == 0) {
 
-    public Personaje() {}
-  
-    public abstract void atacar(Personaje personaje, Personaje personaje2);
+            System.out.println("El ataque ha fallado");
+            return;
+        }
+        enemigo.recibirDano(this);
+    }
 
     public abstract void atacarTipo();
 
-    public abstract void menuPersonaje(Personaje personaje, Personaje personaje2);
-
+    public abstract void menuPersonaje(Personaje enemigo);
 
     @Override
     public String toString() {
-        return "Clase del personaje: " + nombre + ", nivel: " + nivel + ", puntos de salud: " + salud + 
-        ", valor de ataque: " + ataque + ", valor de defensa: " + defensa;
+        return "Clase del personaje: " + nombre + ", nivel: " + nivel + ", puntos de salud: " + salud +
+                ", valor de ataque: " + ataque + ", valor de defensa: " + defensa;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
 
     public Personaje getPersonaje() {
         return this;
     }
 
-
-    
     public Nombre getNombre() {
         return this.nombre;
     }
-
+   
 
     public void setNombre(Nombre nombre) {
         this.nombre = nombre;
@@ -75,6 +74,10 @@ abstract public class Personaje {
 
     public int getSalud() {
         return salud;
+    }
+
+    public boolean isVolando() {
+        return volando;
     }
 
     public void setSalud(int salud) {
@@ -97,6 +100,15 @@ abstract public class Personaje {
         this.defensa = defensa;
     }
 
+    public void recibirDano(Personaje atacante) {
+        if(defendiendo == true){
+            this.salud -= atacante.getAtaque()/2;
+            defendiendo = false;
+            return;
+        }
+        this.salud -= atacante.getAtaque()-this.defensa;
+        System.out.println(this.getNombre() + " ha perdido " + (atacante.getAtaque()-this.defensa) + " puntos de salud.");
 
+    }
 
 }

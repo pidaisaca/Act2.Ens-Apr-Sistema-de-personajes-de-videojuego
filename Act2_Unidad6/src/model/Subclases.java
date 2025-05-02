@@ -1,23 +1,16 @@
 package model;
 
-class Fisico extends Personaje {
+abstract class Fisico extends Personaje {
 
-    public Fisico(Nombre nombre, int nivel, int salud, int ataque, int defensa) {
-        super(nombre, nivel, salud, ataque, defensa);
+    public Fisico(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa) {
+        super(nombre, nivel, salud, saludMax, ataque, defensa);
     }
 
     @Override
-    public void atacar(Personaje enemigo, Personaje combatiente) {
+    public void atacar(Personaje enemigo) {
         System.out.println("Ejecutando Ataque fisico");
-        enemigo.setSalud(enemigo.getSalud() - combatiente.getAtaque());
-        System.out.println(enemigo.getNombre() + " ha perdido " + combatiente.getAtaque() + " puntos de salud.");
-        System.out.println(enemigo.getSalud());
-        System.out.println(combatiente.getSalud());
-    }
+        super.atacar(enemigo);
 
-    @Override
-    public void menuPersonaje(Personaje personaje, Personaje personaje2) {
-    
     }
 
     @Override
@@ -41,27 +34,21 @@ class Fisico extends Personaje {
     }
 }
 
-class Magico extends Personaje {
+abstract class  Magico extends Personaje {
 
-    public Magico(Nombre nombre, int nivel, int salud, int ataque, int defensa) {
-        super(nombre, nivel, salud, ataque, defensa);
+    public Magico(Nombre nombre, int nivel, int salud, int saludMax, int ataque, int defensa) {
+        super(nombre, nivel, salud, saludMax, ataque, defensa);
 
     }
 
-
     @Override
-    public void atacar(Personaje enemigo, Personaje combatiente) {
+    public void atacar(Personaje enemigo) {
         System.out.println("Ejecutando ataque magico");
-        enemigo.setSalud(enemigo.getSalud() - combatiente.getAtaque());
-        System.out.println(enemigo.getNombre() + " ha perdido " + combatiente.getAtaque() + " puntos de salud.");
-        System.out.println(enemigo.getSalud());
-        System.out.println(combatiente.getSalud());
+        super.atacar(enemigo);
+
     }
 
-    @Override
-    public void menuPersonaje(Personaje personaje, Personaje personaje2) {
-        
-    }
+
 
     @Override
     public void atacarTipo() {
