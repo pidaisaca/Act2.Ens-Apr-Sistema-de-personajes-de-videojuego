@@ -179,16 +179,21 @@ public class Batalla {
                 System.out.println("Turno de " + combatiente1.getNombre());
                 combatiente1.menuPersonaje(combatiente2);
             }
-            /* 
+
+            
             if (combatiente1.getSalud() <= 0) {
                 System.out.println("EL combatiente " + combatiente1.getNombre() + " ha perdido la batalla.");
                 System.out.println(combatiente2.getNombre() + " ha ganado la batalla.");
+
             }
             if (combatiente2.getSalud() <= 0) {
                 System.out.println("EL combatiente " + combatiente2.getNombre() + " ha perdido la batalla.");
                 System.out.println(combatiente1.getNombre() + " ha ganado la batalla.");
+                break;
             }
-                */
+                
+            }
+
             ronda++;
         }
     }
