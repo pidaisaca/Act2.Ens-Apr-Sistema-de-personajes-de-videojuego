@@ -61,7 +61,10 @@ public class Asesino extends Fisico implements Movilizable, Curable {
         int accion = sc.nextInt();
 
         switch (accion) {
-
+            case 1:
+                this.atacar(enemigo);
+                sigilo = false;
+                break;
             case 2:
                 this.atacarPorLaEspalda(enemigo);
                 sigilo = false;
@@ -72,12 +75,10 @@ public class Asesino extends Fisico implements Movilizable, Curable {
             case 4:
                 this.curar();
                 break;
-            case 1:
             default:
-                this.atacar(enemigo);
-                sigilo = false;
+                System.out.println("Opcion no valida");
                 break;
-        } sc.close();
+        }
     }
 
 }
