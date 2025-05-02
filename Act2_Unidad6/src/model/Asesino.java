@@ -72,10 +72,6 @@ public class Asesino extends Fisico implements Movilizable, Curable {
             case 4:
                 this.curar();
                 break;
-            default:
-                this.atacar(enemigo);
-                sigilo = false;
-                break;
             case 1:
             default:
                 this.atacar(enemigo);
