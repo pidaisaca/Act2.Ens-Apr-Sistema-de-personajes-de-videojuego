@@ -19,19 +19,20 @@ public class Main {
         Personaje asesino = new Asesino(Nombre.ASESINO, 10, 100, 100, 45, 10, false, 20);
         Personaje mago = new Mago(Nombre.MAGO, 10, 100, 100, 35, 10, 100, 100, 20);
 
+        // Agregar personajes a listado para la descripcion
         juego.agregarPersonaje(guerrero);
         juego.agregarPersonaje(arquero);
         juego.agregarPersonaje(hechicero);
         juego.agregarPersonaje(asesino);
         juego.agregarPersonaje(mago);
 
+        // Agregar personajes disponibles para la batalla
         juego.agregarPersonajeDisponible(mago);
         juego.agregarPersonajeDisponible(guerrero);
         juego.agregarPersonajeDisponible(arquero);
         juego.agregarPersonajeDisponible(hechicero);
         juego.agregarPersonajeDisponible(asesino);
-    
-        int opcion = 1;
+
         do {
             System.out.println("¿Desea hacer otra accion?\n");
             System.out.println("1. Listar combatientes\n");
@@ -52,7 +53,7 @@ public class Main {
                     Personaje combatiente1 = combatientes.getCombatiente1();
                     Personaje combatiente2 = combatientes.getCombatiente2();
                     combatientes.iniciarBatalla(combatiente1, combatiente2);
-                    combatientes.limpiarCombatientes();
+
                     break;
 
                 case 3:

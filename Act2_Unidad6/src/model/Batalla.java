@@ -164,6 +164,7 @@ public class Batalla {
                 combatiente1.menuPersonaje(combatiente2);
                 batalla.esperar(1500);
             }
+
             ronda++;
             System.out.println("");
         }

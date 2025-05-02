@@ -1,95 +1,186 @@
 # Act2.Ens-Apr-Sistema-de-personajes-de-videojuego
 Diseñar un sistema de clases para representar personajes de un videojuego, organizando correctamente una jerarquía de clases e interfaces que simulen habilidades y comportamientos. Trabajar en pareja usando Git y GitHub para el control de versiones.
 
-Reparto de tareas:
 
-Daniel:
-Estructura, clase abstracta Personaje, Subclases intermedias, Clase Juego
+# Webgrafía utilizada
 
-Jose:
-Clases Concretas, Interfaces: Curable, Volador, Magico, Defendible, Movilizable
+    - Stackoverflow
+    - Teoria UT6
+    - Gitub
 
-Ideas para probar el combate: Se escoge a un personaje y se enfreta a otro.
+# Herramientas utilizadas
 
-Interpretacion de los metodos y atributos especificos de cada clase.
+     - Visual Studio Code
 
--Guerrero: 
+    
+# Requisitos para su uso
 
-atributos propios:
+    - Visual Studio Code
+    - Jdk-23
 
-Fuerza: Aumento del daño fisico
+# Estructura de carpetas
+
+Para este proyecto nos centraremos en las carpetas contenidas en el source (src)
+
+Interfaces: 
+
+En ella guardamos las interfaces ha añadir a las clases específicas de las combatientes
+
+    
+Main:
+
+Contiene la clase principal donde se hace las llamadas a los métodos y se crean los objetos
+
+    
+Model:
+
+Contiene las clases para la creación de los combatientes, la lógica del juego y la del combate
+
+
+![alt text](imag/estructura_carpetas.png)
+
+
+
+# Prestaciones del proyecto
+
+Menu de inicio
+
+Muestra las opciones disponibles para seleccionar, las cuales son: 
+
+![alt text](imag/menu_ppal.png)
+
+Opción de listado de personajes
+
+    Muestra un listado de los estadísticas de los personajes y sus habilidades
+
+Opción de simulación de batalla
+
+    Inicia una batalla PVP en la cual se seleccionan dos personajes. Esta finaliza al reducir el valor de salud del rival a 0. 
+
+
+# Descripción de las clases
+
+## Guerrero 
+
+### Atributos propios:
+
+Fuerza: Refleja el daño fisico
 
 Armadura: Reduce el daño fisico
 
 Escudo: Probabilidad de evitar todo el daño
 
 
-metodos propios:
+### Metodos propios:
 
 cargarAtaque(): Aumenta el daño del siguiente ataque
 
 defender(): Reduce el daño del siguiente ataque en un %
 
 
--Mago:
+## Mago
 
-atributos propios:
+### Atributos propios:
 
 Mana: recurso necesario para lanzar habilidades
 
 Sabiduria: regeneracion pasiva de mana
 
 
-metodos propios:
+### Metodos propios:
 
 lanzarHechizo(): inflige daño magico
 
 regenerarMana(): regenera una cantidad grande de mana
 
 
--Arquero
+## Arquero
 
-atributos propios:
+### Atributos propios:
 
-agilidad: probabilidad de esquivar
+Agilidad: probabilidad de esquivar
 
-numFlechas: municion necesaria para usar el metodo de disparar Flechas
+NumFlechas: municion necesaria para usar el metodo de disparar Flechas
 
 
-metodos propios:
+### Metodos propios:
 
 reabastecerFlechas() recarga las flechas
 
 dispararFlechas() inflige daño fisico y a distancia
 
 
--Hechicero
+## Hechicero
 
-atributos propios:
+### Atributos propios:
 
 Mana: recurso necesario para lanzar habilidades
 
-Concentracion: ?
+Concentracion: reducción contra el daño mágico
 
 
-metodos propios:
+### Metodos propios:
 
 invocarEntidad(): efecto tipo daño en el tiempo (la entidad hace un ataque al principio del turno)
 
 defender(): Reduce el daño del siguiente ataque en un %
 
 
--Asesino
+## Asesino
 
-atributos:
+### Atributos propios:
 
-sigilo: probabilidad de obtener un efecto que aumenta la probabilidad de esquivar
+Sigilo: probabilidad de obtener un efecto que aumenta la probabilidad de esquivar
 
-critico: probabilidad de daño extra en base a un %
+Crítico: probabilidad de daño extra en base a un %
 
 
-metodos propios:
+### Metodos propios:
 
 atacarPorLaEspal0da(): daño critico garantizado, requiere sigilo
 
 ocultar(): otorga sigilo
+
+
+## Ejemplo de uso
+
+Pongamonos en la piel de dos juegadores nuevos, que desconocen el sistema del juego. Llamemoslos Daniel y Jose.
+
+En primer lugar ninguno de los dos, conoce las habilidades/atributos de cada una de las clases, por lo tanto seleccionarían la opción 1: Listar combatientes
+
+![alt text](imag/primer_paso.png)
+
+Esto les mostrará en pantalla, una descripción de cada uno de los posibles personajes que podrán escoger en la batalla.
+
+![alt text](imag/primer_paso2.png)
+
+Tras ello, el programa vuelve al menu y nuestros jugadores seleccionan la segunda opción: Iniciar batalla.
+
+Esto les lleva a una nueva selección en la cual se deberá escribir el nombre del personaja para el primer jugador. Para el primer jugador escogeremos el guerrero.
+
+![alt text](imag/segundo_paso.png)
+
+Tras ello, se actualizará la lista de personajes disponibles y se podrá escoger el segundo personaje. En esta ocasión, el arquero.
+
+![alt text](imag/segundo_paso2.png)
+
+Una vez escogidos los personajes, se mostrará a los jugadores quien empieza primero (lo cual es decidido aleatoriamente cada turno), más un menu con las opciones disponibles para este. Por ejemplo, ahora comienza el arquero:
+
+![alt text](imag/segundo_paso3.png)
+
+Daniel, jugando con el arquero usa la tercera habilidad: Disparar flecha. Esto refleja el daño hecho al guerrero y pasamos a su turno.
+
+![alt text](imag/segundo_paso4.png)
+
+Jose, usa su segunda habilidad aumentando la fuerza para su siguiente turno. Además, vemos como se le ha restado una flecha al arquero.
+
+![alt text](imag/segundo_paso5.png)
+
+Hagamos un fast-forward hacia el final del combate. Jose ha tenido maña suerte y algunos de sus ataques han fallado. Por lo que Daniel con el arquero le da el golpe de gracia. Finalizado el combate, se nos mostrará el perdedor y el ganador del combate.
+
+![alt text](imag/segundo_paso6.png)
+
+## Autores
+
+Daniel Ramos Montoya  
+José Antonio Alonso Navarro
