@@ -32,7 +32,7 @@ public class Main {
         juego.agregarPersonajeDisponible(arquero);
         juego.agregarPersonajeDisponible(hechicero);
         juego.agregarPersonajeDisponible(asesino);
-        
+
         int opcion;
         do {
             System.out.println("¿Desea hacer otra accion?\n");
@@ -54,7 +54,7 @@ public class Main {
                     Personaje combatiente1 = combatientes.getCombatiente1();
                     Personaje combatiente2 = combatientes.getCombatiente2();
                     combatientes.iniciarBatalla(combatiente1, combatiente2);
-
+                    opcion = 3;
                     break;
 
                 case 3:
@@ -71,22 +71,3 @@ public class Main {
     }
 
 }
-/*
- * Posible diseño de las habilidades
- * 
- * - Hechicero:
- * - Invocar entidad: Efecto tipo daño en el tiempo (la entidad hace un ataque
- * al principio del turno)
- * 1 turno de invocacion: daño fisico extra (definir cant turnos)
- * - Lanzar hechizo: Lanza un hechizo basico desde la interfaz magica
- * 1 turno de lanzar hechizo: daño magico + x
- * 
- * - Mago:
- * - Lanzar hechizo: Lanza un hechizo magico superior exclusivo del mago
- * 1 turno de lanzar hechizo: daño magico + y
- * Coste de mana: x
- * - Regenerar mana: Regenera una gran cantidad de mana
- * 1 turno de regenerar mana: mana + y
- * - Curar: Lanza un hechizo curativo
- * 1 turno de curar: salud + x
- */
