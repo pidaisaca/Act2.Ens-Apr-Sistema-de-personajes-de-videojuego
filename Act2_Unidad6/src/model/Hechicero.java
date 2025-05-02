@@ -29,6 +29,7 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
             System.out.println(enemigo.getNombre() + " ha perdido "
                     + (this.ataque + this.concentracion - enemigo.getDefensa()) + " puntos de salud");
             this.mana -= 20;
+            defendiendo = false;
         } else {
             System.out.println("No se ha lanzado el hechizo porque no habia mana suficiente y en su lugar "
                     + this.getNombre() + " se ha defendido");
@@ -53,6 +54,7 @@ public class Hechicero extends Magico implements Magica, Defendible, Curable {
             }
             System.out.println(
                     this.getNombre() + " se sano " + (this.getAtaque() + this.saludMax / 5) + " puntos de salud.");
+                    defendiendo = false;
         } else {
             System.out.println("No se ha lanzado el hechizo porque no habia mana suficiente y en su lugar "
                     + this.getNombre() + " se ha defendido");

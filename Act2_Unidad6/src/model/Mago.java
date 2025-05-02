@@ -79,7 +79,7 @@ public class Mago extends Magico implements Magica, Curable {
                 this.atacar(enemigo);
                 break;
             case 2:
-                System.out.println("Lanzar hechizo");
+                this.lanzarHechizo(enemigo);
                 break;
             case 3:
                 this.regenerarMana();

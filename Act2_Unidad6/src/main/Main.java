@@ -32,7 +32,8 @@ public class Main {
         juego.agregarPersonajeDisponible(arquero);
         juego.agregarPersonajeDisponible(hechicero);
         juego.agregarPersonajeDisponible(asesino);
-
+        
+        int opcion;
         do {
             System.out.println("¿Desea hacer otra accion?\n");
             System.out.println("1. Listar combatientes\n");
